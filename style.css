@@ -1,0 +1,440 @@
+/* ==========================================================================
+   STRICT BLUE & WHITE DESIGN SYSTEM
+   Professional Single-Page Registration Questionnaire
+   All colors are strictly shades of blue and pure white. No gradients.
+   ========================================================================== */
+
+:root {
+    --primary-blue: #0056b3;
+    --dark-blue: #003366;
+    --navy-blue: #002244;
+    --light-blue-bg: #f0f7ff;
+    --hover-blue: #e3effe;
+    --border-blue: #cce0f7;
+    --border-blue-hover: #0056b3;
+    --white: #ffffff;
+    --shadow-blue: rgba(0, 51, 102, 0.10);
+    --shadow-focus: rgba(0, 86, 179, 0.25);
+    --validation-blue: #004494;
+}
+
+/* Base Reset & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--light-blue-bg);
+    color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px 16px;
+}
+
+/* Main Centered Layout Container */
+.main-container {
+    width: 100%;
+    max-width: 580px;
+}
+
+/* Centered Questionnaire Card */
+.card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 44px 40px;
+    box-shadow: 0 12px 36px var(--shadow-blue), 0 2px 8px rgba(0, 51, 102, 0.05);
+    border: 1px solid var(--border-blue);
+}
+
+/* Page Header */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    color: var(--dark-blue);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: var(--primary-blue);
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+/* Progress Indicator & Bar */
+.progress-container {
+    margin-bottom: 32px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.progress-fraction {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.progress-bar-bg {
+    background-color: var(--hover-blue);
+    height: 8px;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: 1px solid var(--border-blue);
+}
+
+.progress-bar-fill {
+    background-color: var(--primary-blue);
+    height: 100%;
+    width: 33.333%;
+    border-radius: 9999px;
+    transition: width 0.35s ease;
+}
+
+/* Question Area */
+.question-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.question-title {
+    color: var(--dark-blue);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 22px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+/* Selectable Radio Cards */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.option-item {
+    position: relative;
+}
+
+/* Screen-reader accessible hidden radio input */
+.option-item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Radio Card Label */
+.option-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background-color: var(--white);
+    border: 2px solid var(--border-blue);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    user-select: none;
+}
+
+/* Indicator Circle inside Label */
+.option-indicator {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--border-blue);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.option-indicator-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--white);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Hover State */
+.option-item:hover .option-label {
+    background-color: var(--light-blue-bg);
+    border-color: var(--primary-blue);
+}
+
+.option-item:hover .option-indicator {
+    border-color: var(--primary-blue);
+}
+
+/* Keyboard Focus State */
+.option-item input[type="radio"]:focus-visible + .option-label {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px var(--shadow-focus);
+}
+
+/* Selected State */
+.option-item input[type="radio"]:checked + .option-label {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+.option-item input[type="radio"]:checked + .option-label .option-indicator {
+    border-color: var(--white);
+    background-color: var(--primary-blue);
+}
+
+.option-item input[type="radio"]:checked + .option-label .option-indicator-dot {
+    opacity: 1;
+}
+
+/* Validation Message */
+.validation-container {
+    min-height: 26px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.validation-msg {
+    color: var(--validation-blue);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--light-blue-bg);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-blue);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.validation-msg.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Navigation Footer & Buttons */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    gap: 16px;
+}
+
+.btn {
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--shadow-focus);
+}
+
+/* Next / Submit Button (Solid Blue) */
+.btn-solid {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: 2px solid var(--primary-blue);
+    margin-left: auto;
+}
+
+.btn-solid:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.btn-solid:active {
+    transform: scale(0.98);
+}
+
+/* Back Button (White with Blue Outline) */
+.btn-outline {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-outline:hover {
+    background-color: var(--light-blue-bg);
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.btn-outline:active {
+    transform: scale(0.98);
+}
+
+/* Success / Completion Screen */
+.success-card {
+    text-align: center;
+    padding: 56px 40px;
+}
+
+.checkmark-circle {
+    width: 88px;
+    height: 88px;
+    border: 4px solid var(--primary-blue);
+    background-color: var(--light-blue-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+}
+
+.checkmark-icon {
+    width: 42px;
+    height: 42px;
+    stroke: var(--primary-blue);
+    stroke-width: 3.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.success-card h2 {
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.success-main {
+    color: var(--primary-blue);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.success-sub {
+    color: var(--dark-blue);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .card {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .question-title {
+        font-size: 17px;
+        margin-bottom: 18px;
+    }
+
+    .option-label {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 20px;
+    }
+
+    .btn-solid {
+        margin-left: 0;
+    }
+
+    .success-card {
+        padding: 40px 20px;
+    }
+
+    .checkmark-circle {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 24px;
+    }
+
+    .checkmark-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .success-card h2 {
+        font-size: 24px;
+    }
+}

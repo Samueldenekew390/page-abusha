@@ -1,0 +1,6 @@
+{
+  "name": "Registration Questionnaire",
+  "description": "A professional single-page registration questionnaire built with HTML, CSS, and Vanilla JavaScript.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

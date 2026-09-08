@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Questionnaire</title>
+    <meta name="description" content="A professional single-page registration questionnaire built with HTML, CSS, and Vanilla JavaScript.">
+    <meta property="og:title" content="Registration Questionnaire">
+    <meta property="og:description" content="A professional single-page registration questionnaire built with HTML, CSS, and Vanilla JavaScript.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="main-container" id="main-container">
+        <!-- Main Questionnaire Card -->
+        <section class="card" id="questionnaire-card" aria-labelledby="page-title">
+            
+            <!-- Page Header -->
+            <header class="header" id="page-header">
+                <h1 id="page-title">Registration Questionnaire</h1>
+                <p id="page-subtitle">Please answer the following questions accurately to complete your registration.</p>
+            </header>
+
+            <!-- Progress Indicator -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-header" id="progress-header">
+                    <span class="progress-text" id="progress-text">Question 1 of 3</span>
+                    <span class="progress-fraction" id="progress-fraction">33%</span>
+                </div>
+                <div class="progress-bar-bg" id="progress-bar-bg">
+                    <div 
+                        class="progress-bar-fill" 
+                        id="progress-bar-fill" 
+                        role="progressbar" 
+                        aria-valuemin="1" 
+                        aria-valuemax="3" 
+                        aria-valuenow="1"
+                        aria-label="Questionnaire Progress"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Question Content Area -->
+            <div id="question-content">
+                <!-- Injected dynamically via script.js -->
+            </div>
+
+            <!-- Inline Validation Message -->
+            <div class="validation-container" id="validation-container">
+                <p id="validation-msg" class="validation-msg" role="alert" aria-live="polite" aria-hidden="true">
+                    <span>Please select an answer before continuing.</span>
+                </p>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <footer class="footer" id="navigation-footer">
+                <button type="button" id="back-btn" class="btn btn-outline">Back</button>
+                <button type="button" id="next-btn" class="btn btn-solid">Next</button>
+            </footer>
+        </section>
+
+        <!-- Submission Success Screen (Hidden by default) -->
+        <section class="card success-card" id="success-screen" style="display: none;" aria-live="polite">
+            <div class="checkmark-circle" id="checkmark-circle" aria-hidden="true">
+                <svg class="checkmark-icon" id="checkmark-icon" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h2 id="success-title">Congratulations!</h2>
+            <p class="success-main" id="success-main">Your registration questionnaire has been successfully completed.</p>
+            <p class="success-sub" id="success-sub">Thank you for providing the required information. Your registration process is now complete.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
