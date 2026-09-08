@@ -1,6 +1,0 @@
-{
-  "name": "Registration Questionnaire",
-  "description": "A clean, professional blue and white single-page registration questionnaire built with semantic HTML, CSS, and vanilla JavaScript.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
